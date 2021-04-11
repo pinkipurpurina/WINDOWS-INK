@@ -1,0 +1,139 @@
+﻿<!--
+Copyright (c) Microsoft Corporation.  All rights reserved.
+The MIT License (MIT)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<Page x:ConnectionId='1'
+    x:Class="GettingStarted_Ink.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Main"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel x:ConnectionId='2' x:Name="HeaderPanel" Orientation="Horizontal" Grid.Row="0">
+            <TextBlock x:ConnectionId='20' x:Name="Header" 
+                       Text="Mi aplicación de notas XD" 
+                       Style="{ThemeResource HeaderTextBlockStyle}" 
+                       Margin="10,0,0,0" />            
+        </StackPanel>
+        
+        <StackPanel x:ConnectionId='3' x:Name="ToolPanel" Orientation="Horizontal" Grid.Row="1">
+        
+                <!-- Begin "Step 4: Add an ink toolbar" -->
+           <InkToolbar x:ConnectionId='10' x:Name="inkToolbar" 
+                       VerticalAlignment="Top" 
+                       Margin="10,0,10,0"
+                                                           >
+                <InkToolbarCustomToggleButton x:ConnectionId='16' 
+                x:Name="toggleButton" 
+                                           
+                ToolTipService.ToolTip="Escritura táctil">
+                    <SymbolIcon x:ConnectionId='19'                                   />
+                </InkToolbarCustomToggleButton>
+                <InkToolbarCustomToolButton x:ConnectionId='17' 
+                x:Name="customToolButton" 
+                                               
+                ToolTipService.ToolTip="Selection tool">
+                    <SymbolIcon x:ConnectionId='18'                             />
+                </InkToolbarCustomToolButton>
+            </InkToolbar>
+                
+            <!-- End "Step 4: Add an ink toolbar" -->
+            <!-- Begin "Step 7: Save and load ink" -->
+            <Button x:ConnectionId='11' x:Name="buttonSave" 
+                    Content="Save" 
+                                                 
+                    Width="100"
+                    Margin="5,0,0,0"/>
+            <Button x:ConnectionId='12' x:Name="buttonLoad" 
+                    Content="Load"  
+                                                 
+                    Width="100"
+                    Margin="5,0,0,0"/>
+            <Button x:ConnectionId='13' x:Name="cutButton" 
+                Content="Cut" 
+                                       
+                Width="100"
+                Margin="5,0,0,0"/>
+            <Button x:ConnectionId='14' x:Name="copyButton" 
+                Content="Copy"  
+                                        
+                Width="100"
+                Margin="5,0,0,0"/>
+            <Button x:ConnectionId='15' x:Name="pasteButton" 
+                Content="Paste"  
+                                         
+                Width="100"
+                Margin="5,0,0,0"/>
+            <!-- End "Step 7: Save and load ink" -->
+        </StackPanel>
+      
+        <Grid x:ConnectionId='4' x:Name="drawingCanvas" Grid.Row="2"                                        >
+           <!--añadir una etiqueta para poner fondo--> 
+            <!-- The canvas where we draw the replacement shapes. -->
+            <!-- Begin Step 6: Recognize shapes -->
+            <Canvas x:ConnectionId='8' x:Name="canvas" />
+            <!-- End Step 6: Recognize shapes -->
+            
+            <!-- Begin "Step 2: Use InkCanvas to support basic inking" -->
+            <InkCanvas x:ConnectionId='9' x:Name="inkCanvas"                                                                                                                CanDrag="True"                                         />
+            <!-- End "Step 2: Use InkCanvas to support basic inking" -->
+
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Begin "Step 5: Support handwriting recognition" -->
+            <Button x:ConnectionId='5' x:Name="recognizeText" 
+                    Content="Recognize text"  
+                    Grid.Row="0" Grid.Column="0"
+                    Margin="10,10,10,10"
+                                                    />
+            <TextBlock x:ConnectionId='6' x:Name="recognitionResult" 
+                       Text="Recognition results: "
+                       VerticalAlignment="Center" 
+                       Grid.Row="0" Grid.Column="1"
+                       Margin="50,0,0,0" />
+            <!-- End "Step 5: Support handwriting recognition" -->
+            <!-- Begin "Step 6: Recognize shapes" -->
+            <Button x:ConnectionId='7' Grid.Row="1" x:Name="recognizeShape"                                  
+                    Content="Recognize shape" 
+                    Margin="10,10,10,10" />
+            <!-- End "Step 6: Recognize shapes" -->
+        </Grid>
+        
+        
+        
+    </Grid>
+</Page>
+
